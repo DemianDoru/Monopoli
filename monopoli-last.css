@@ -1,0 +1,216 @@
+body {
+  padding: 10px;
+}
+.container {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
+  border: 1px solid black;
+}
+.position-nr1 {
+  grid-column-start: 1;
+  grid-column-end: 2;
+  grid-row-start: 1;
+  grid-row-end: 2;
+  border: 1px solid black;
+}
+.content-nr1 {
+  text-align: center;
+  transform: rotate(145deg);
+}
+.position-nr2 {
+  grid-column-start: 2;
+  grid-column-end: 3;
+  grid-row-start: 1;
+  grid-row-end: 2;
+  border: 1px solid black;
+  border-bottom: 10px solid green;
+}
+.content-nr2 {
+  text-align: center;
+  transform: rotate(180deg);
+}
+.position-nr3 {
+  grid-column-start: 3;
+  grid-column-end: 4;
+  grid-row-start: 1;
+  grid-row-end: 2;
+  border: 1px solid black;
+  border-bottom: 10px solid green;
+}
+.content-nr3 {
+  text-align: center;
+  transform: rotate(180deg);
+}
+.position-nr4 {
+  grid-column-start: 4;
+  grid-column-end: 5;
+  grid-row-start: 1;
+  grid-row-end: 2;
+  border: 1px solid black;
+  border-bottom: 10px solid green;
+}
+.content-nr4 {
+  text-align: center;
+  transform: rotate(180deg);
+}
+.position-nr5 {
+  grid-column-start: 5;
+  grid-column-end: 6;
+  grid-row-start: 1;
+  grid-row-end: 2;
+  border: 1px solid black;
+  border-bottom: 2px solid black;
+}
+.content-nr5 {
+  text-align: center;
+  transform: rotate(210deg);
+}
+.position-nr6 {
+  grid-column-start: 5;
+  grid-column-end: 6;
+  grid-row-start: 2;
+  grid-row-end: 3;
+  border: 1px solid black;
+  border-left: 10px solid orange;
+}
+.content-nr6 {
+  text-align: center;
+  transform: rotate(275deg);
+}
+.position-nr7 {
+  grid-column-start: 5;
+  grid-column-end: 6;
+  grid-row-start: 3;
+  grid-row-end: 4;
+  border: 1px solid black;
+  border-left: 10px solid orange;
+}
+.content-nr7 {
+  text-align: center;
+  transform: rotate(275deg);
+}
+.position-nr8 {
+  grid-column-start: 5;
+  grid-column-end: 6;
+  grid-row-start: 4;
+  grid-row-end: 5;
+  border: 1px solid black;
+  border-left: 10px solid orange;
+}
+.content-nr8 {
+  text-align: center;
+  transform: rotate(275deg);
+}
+.position-nr9 {
+  grid-column-start: 5;
+  grid-column-end: 6;
+  grid-row-start: 5;
+  grid-row-end: 6;
+  border: 1px solid black;
+}
+.content-nr9 {
+  text-align: center;
+  transform: rotate(145deg);
+}
+.position-nr10 {
+  grid-column-start: 4;
+  grid-column-end: 5;
+  grid-row-start: 5;
+  grid-row-end: 6;
+  border: 1px solid black;
+  border-top: 10px solid pink;
+}
+.content-nr10 {
+  text-align: center;
+  transform: rotate(0deg);
+}
+.position-nr11 {
+  grid-column-start: 3;
+  grid-column-end: 4;
+  grid-row-start: 5;
+  grid-row-end: 6;
+  border: 1px solid black;
+  border-top: 10px solid pink;
+}
+.content-nr11 {
+  text-align: center;
+  transform: rotate(0deg);
+}
+.position-nr12 {
+  grid-column-start: 2;
+  grid-column-end: 3;
+  grid-row-start: 5;
+  grid-row-end: 6;
+  border: 1px solid black;
+  border-top: 10px solid pink;
+}
+.content-nr12 {
+  text-align: center;
+  transform: rotate(0deg);
+}
+.position-nr13 {
+  grid-column-start: 1;
+  grid-column-end: 2;
+  grid-row-start: 5;
+  grid-row-end: 6;
+  border: 1px solid black;
+}
+.content-nr13 {
+  text-align: center;
+  transform: rotate(45deg);
+}
+.position-nr14 {
+  grid-column-start: 1;
+  grid-column-end: 2;
+  grid-row-start: 4;
+  grid-row-end: 5;
+  border: 1px solid black;
+  border-right: 10px solid yellow;
+}
+.content-nr14 {
+  text-align: center;
+  transform: rotate(90deg);
+}
+.position-nr15 {
+  grid-column-start: 1;
+  grid-column-end: 2;
+  grid-row-start: 3;
+  grid-row-end: 4;
+  border: 1px solid black;
+  border-right: 10px solid yellow;
+}
+.content-nr15 {
+  text-align: center;
+  transform: rotate(90deg);
+}
+.position-nr16 {
+  grid-column-start: 1;
+  grid-column-end: 2;
+  grid-row-start: 2;
+  grid-row-end: 3;
+  border: 1px solid black;
+  border-right: 10px solid yellow;
+}
+.content-nr16 {
+  text-align: center;
+  transform: rotate(90deg);
+}
+.click-button {
+  grid-column-start: 3;
+  grid-column-end: 4;
+  grid-row-start: 3;
+  grid-row-end: 4;
+}
+.dice img {
+  background-color: burlywood;
+  position: relative;
+  left: 40%;
+  top: 200px;
+  width: 150px;
+  border: 2px solid black;
+}
+.current {
+  border: 1px solid black;
+  width: 150px;
+}
