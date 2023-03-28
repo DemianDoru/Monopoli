@@ -202,7 +202,7 @@ body {
   grid-row-start: 3;
   grid-row-end: 4;
 }
-.dice img {
+img {
   background-color: burlywood;
   position: relative;
   left: 40%;
@@ -213,4 +213,8 @@ body {
 .current {
   border: 1px solid black;
   width: 150px;
+}
+
+.hidden {
+  display: none;
 }
