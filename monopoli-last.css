@@ -218,3 +218,23 @@ img {
 .hidden {
   display: none;
 }
+
+.player1-symbol {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background-color: aqua;
+  position: relative;
+  top: 20px;
+  left: 30px;
+}
+
+.player2-symbol {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background-color: red;
+  position: relative;
+  top: 30px;
+  left: 30px;
+}
