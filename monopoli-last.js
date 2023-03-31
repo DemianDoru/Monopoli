@@ -1,50 +1,23 @@
 ///Selecting Elements
-let player1 = document.querySelector('.player1');
-let player2 = document.querySelector('.player2');
 let scorePlayer1 = document.querySelector('#current-position-1');
 let scorePlayer2 = document.querySelector('#current-position-2');
 let currentDice1 = document.getElementById('current--1');
 let currentDice2 = document.getElementById('current--2');
-let rectangle = document.querySelector('.rectangle-wrapper');
 let player1Symbol = document.querySelector('.player1-symbol');
 let player2Symbol = document.querySelector('.player2-symbol');
+let contentNr = document.querySelector('.contentNr');
 
 const diceElem = document.querySelector('.dice');
 const btnRoll = document.querySelector('.btn-roll');
 const btnNew = document.querySelector('.btn-new');
 
 //Starting conditions
-let scores,
-  currentScore,
-  activePlayer,
-  dice,
-  pointer,
-  allRectangles,
-  stepIncrement,
-  currentPointerPosition;
-
-let initialization = function () {
-  scores = [0, 0];
-  currentScore = 0;
-  activePlayer = 1;
-  diceElem.classList.add('hidden');
-  dice;
-
-  restartCurrent();
-};
-
-initialization();
-
-function restartCurrent() {
-  scorePlayer1 = scores[0];
-  scorePlayer2 = scores[1];
-  currentDice1 = 0;
-  currentDice2 = 0;
-  document.getElementById('current--1').textContent = 0;
-  document.getElementById('current--2').textContent = 0;
-  scorePlayer1 = document.querySelector('#current-position-1').textContent = 0;
-  scorePlayer2 = document.querySelector('#current-position-2').textContent = 0;
-}
+scores = [0, 0];
+currentScore = 0;
+activePlayer = 1;
+diceElem.classList.add('hidden');
+scorePlayer1 = scores[0];
+scorePlayer2 = scores[1];
 
 btnRoll.addEventListener('click', function () {
   rollingDice();
@@ -54,6 +27,7 @@ btnRoll.addEventListener('click', function () {
   switchPlayer();
   movePointer(dice);
 });
+
 function rollingDice() {
   dice = Math.trunc(Math.random() * 6) + 1;
   console.log(dice);
@@ -88,19 +62,42 @@ function addValueCurrentPlayer() {
     console.log(scorePlayer2, 'player2');
   }
 }
+
 const movePointer = (step) => {
-  const pointer = activePlayer === 1 ? player1Symbol : player2Symbol; // select the active player's pointer
+  pointer = activePlayer === 1 ? player1Symbol : player2Symbol; // select the active player's pointer
   const currentPointerPosition = Number(
-    pointer.parentNode.querySelector('.content-nr').innerHTML
+    pointer.parentNode.querySelector('.contentNr').innerHTML
   ); // get the current position of the pointer
 
   const allRectangles = document.querySelectorAll('.rectangle-wrapper');
   const stepIncrement = currentPointerPosition + Number(step - 1);
 
   if (stepIncrement < allRectangles.length) {
-    const rectangleTarget = allRectangles[stepIncrement];
-    rectangleTarget.querySelector('.content-nr').before(pointer); // move the pointer to the target position
+    let rectangleTarget = allRectangles[stepIncrement];
+    rectangleTarget.querySelector('.contentNr').before(pointer); // move the pointer to the target position
   }
 };
 
-btnNew.addEventListener('click', initialization);
+function restartCurrent() {
+  currentDice1 = 0;
+  currentDice2 = 0;
+  document.getElementById('current--1').textContent = 0;
+  document.getElementById('current--2').textContent = 0;
+  scorePlayer1 = document.querySelector('#current-position-1').textContent = 0;
+  scorePlayer2 = document.querySelector('#current-position-2').textContent = 0;
+  activePlayer = 1;
+  player1Score = { ...player1Symbol };
+  player2Score = { ...player2Symbol };
+  let playersScore = { ...player1Score, ...player2Score };
+
+  const allRectangles = document.querySelectorAll('.rectangle-wrapper');
+  const initialPosition = allRectangles[0];
+  let pointer = { ...playersScore };
+  // console.log(typeof pointer);
+  // console.log(typeof player1Symbol);
+  // console.log(typeof player2Symbol);
+
+  initialPosition.querySelector('.contentNr').before(pointer);
+}
+
+btnNew.addEventListener('click', restartCurrent);
