@@ -36,17 +36,6 @@ function rollingDice() {
   diceElem.src = `dice-${dice}.png`;
   currentScore += dice;
 }
-
-function switchPlayer() {
-  if (scorePlayer1 >= 16) {
-    console.log(`Congratulations Player 1, you win the game`);
-  } else if (scorePlayer2 >= 16) {
-    console.log(`Congratulations Player 2, you win the game`);
-  } else {
-    activePlayer = activePlayer === 1 ? 2 : 1;
-  }
-}
-
 function addValueCurrentPlayer() {
   if (activePlayer === 1) {
     scorePlayer1 += currentScore;
@@ -60,6 +49,16 @@ function addValueCurrentPlayer() {
     scorePlayer2 = scorePlayer2;
     document.querySelector('#current-position-2').textContent = scorePlayer2;
     console.log(scorePlayer2, 'player2');
+  }
+}
+
+function switchPlayer() {
+  if (scorePlayer1 >= 16) {
+    console.log(`Congratulations Player 1, you win the game`);
+  } else if (scorePlayer2 >= 16) {
+    console.log(`Congratulations Player 2, you win the game`);
+  } else {
+    activePlayer = activePlayer === 1 ? 2 : 1;
   }
 }
 
@@ -83,21 +82,18 @@ function restartCurrent() {
   currentDice2 = 0;
   document.getElementById('current--1').textContent = 0;
   document.getElementById('current--2').textContent = 0;
-  scorePlayer1 = document.querySelector('#current-position-1').textContent = 0;
-  scorePlayer2 = document.querySelector('#current-position-2').textContent = 0;
+  scorePlayer1 = document.querySelector('#current-position-1');
+  scorePlayer2 = document.querySelector('#current-position-2');
+  scorePlayer1.textContent = 0;
+  scorePlayer2.textContent = 0;
   activePlayer = 1;
-  player1Score = { ...player1Symbol };
-  player2Score = { ...player2Symbol };
-  let playersScore = { ...player1Score, ...player2Score };
 
   const allRectangles = document.querySelectorAll('.rectangle-wrapper');
   const initialPosition = allRectangles[0];
-  let pointer = { ...playersScore };
-  // console.log(typeof pointer);
-  // console.log(typeof player1Symbol);
-  // console.log(typeof player2Symbol);
 
-  initialPosition.querySelector('.contentNr').before(pointer);
+  initialPosition
+    .querySelector('.contentNr')
+    .before(player1Symbol, player2Symbol);
 }
 
 btnNew.addEventListener('click', restartCurrent);
